@@ -1,17 +1,13 @@
 {% include head.html %}
 
-<div id="side-nav">
+<body id="body">
   {% assign sorted_cats = site.categories | sort %}
   {% for category in sorted_cats %}
-  {% assign sorted_posts = category[1] | reversed %}
-  <h2 id="{{category[0] | uri_escape | downcase }}">{{category[0] | capitalize}}</h2>
+  {% assign sorted_posts = category[1] | reverse %}
   <ul>
     {% for post in sorted_posts %}
-   	<div>{{ post }}</div>
+    <div class="post-section">{{ post }}</div>
     {% endfor %}
   </ul>
   {% endfor %}
-</div>
-
-<body id="body">
 </body>
