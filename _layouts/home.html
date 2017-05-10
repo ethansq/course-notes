@@ -1,13 +1,15 @@
 {% include head.html %}
 
-<body id="body">
+<body>
   {% assign sorted_cats = site.categories | sort %}
   {% for category in sorted_cats %}
   {% assign sorted_posts = category[1] | reverse %}
-  <ul>
-    {% for post in sorted_posts %}
-    <div class="post-section">{{ post }}</div>
-    {% endfor %}
-  </ul>
+  <article class="markdown-body">
+    <ul>
+      {% for post in sorted_posts %}
+      <div class="post-section">{{ post }}</div>
+      {% endfor %}
+    </ul>
+  </article>
   {% endfor %}
 </body>
