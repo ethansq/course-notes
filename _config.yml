@@ -28,7 +28,7 @@ github_username:  ethansq
 markdown: kramdown
 
 kramdown:
-  auto_ids: false
+  auto_ids: true
 
 theme: minima
 gems:

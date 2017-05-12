@@ -1,5 +1,5 @@
-$icon-bar-width: 2.4em;
-$menu-bar-width: 5em;
+$icon-bar-width: 4em;
+$menu-bar-width: 15em;
 
 #side-bar {
   width:auto;
@@ -8,16 +8,17 @@ $menu-bar-width: 5em;
   position:fixed;
   left:0px;
   overflow:hidden;
+  padding-top:10px;
+  padding-bottom:10px;
 
   #icons {
     float:left;
     width:$icon-bar-width;
 
     .site-icon-wrapper {
-      padding:4px;
+      padding:8px;
       img {
-        // width:100%;
-        width:0px;
+        width:28px;
         height:auto;
       }
     }
@@ -26,7 +27,33 @@ $menu-bar-width: 5em;
   #menu {
     float:left;
     width:$menu-bar-width;
+    margin-left:10px;
   }
+}
+
+#menu {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  }
+
+  div.category {
+    padding:12px 16px;
+    &:hover {
+      background:rgba(0,0,0,0.2);
+    }
+
+    .category-header {
+      margin:0px;
+      color:#fff;
+    }
+  }
+
+  .name {
+    color: #fff;
+    margin-top:32px;
+  }
+
+
 }
 
 .container {

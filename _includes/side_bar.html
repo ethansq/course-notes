@@ -5,6 +5,18 @@
 
   <div id="menu">
     <div class="category-container">
+      <h1 class="name">Et/Han</h1>
+
+      {% assign categories = site.categories %}
+      {% for category in categories %}
+        {% assign sorted_posts = category[1] | reverse %}
+        <div class="category">
+          <h4 class="category-header">{{ category | first }}</h4>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="">
     </div>
   </div>
 </div>
