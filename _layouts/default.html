@@ -1,0 +1,20 @@
+{% include head.html %}
+
+<body>
+
+  {% include side_bar.html %}
+
+  <div class="page-content">
+    <div class="container">
+      {% assign sorted_cats = site.categories | sort %}
+      {% for category in sorted_cats %}
+      {% assign sorted_posts = category[1] | reverse %}
+      <article class="markdown-body">
+        {% for post in sorted_posts %}
+        <div class="post-section">{{ post }}</div>
+        {% endfor %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</body>
