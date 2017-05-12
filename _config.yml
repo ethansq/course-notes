@@ -26,6 +26,10 @@ github_username:  ethansq
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  auto_ids: false
+
 theme: minima
 gems:
   - jekyll-feed

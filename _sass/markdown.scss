@@ -4,9 +4,7 @@ body, html {
 
 .container {
   width: 50em;
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 0px auto;
+  float:left;
 }
 
 .container .markdown-body

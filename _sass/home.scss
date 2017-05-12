@@ -1,7 +1,34 @@
+$icon-bar-width: 2.4em;
+$menu-bar-width: 5em;
+
 #side-bar {
-  width:60px;
-  background-color:#000;
+  width:auto;
+  background-color: $primary-color;
   height:100%;
   position:fixed;
   left:0px;
+  overflow:hidden;
+
+  #icons {
+    float:left;
+    width:$icon-bar-width;
+
+    .site-icon-wrapper {
+      padding:4px;
+      img {
+        // width:100%;
+        width:0px;
+        height:auto;
+      }
+    }
+  }
+
+  #menu {
+    float:left;
+    width:$menu-bar-width;
+  }
+}
+
+.container {
+  margin-left:$icon-bar-width + $menu-bar-width;
 }
