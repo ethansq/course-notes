@@ -3,12 +3,12 @@ $(function () {
   'use strict';
 
   /* selector for headers */
-  var postHeader = '.markdown-body h1, '
-    +'.markdown-body h2, '
-    +'.markdown-body h3, '
-    +'.markdown-body h4, '
-    +'.markdown-body h5, '
-    +'.markdown-body h6';
+  var postHeader = '.post-section > h1, '
+    +'.post-section > h2, '
+    +'.post-section > h3, '
+    +'.post-section > h4, '
+    +'.post-section > h5, '
+    +'.post-section > h6';
 
   $(postHeader).filter('[id]').each(function () {
     var header      = $(this),
@@ -17,7 +17,11 @@ $(function () {
         anchorIcon  = '<i class="fa fa-link" title="Link" aria-hidden="true"></i>';
 
     if (headerID) {
-      header.prepend($('<a />').addClass(anchorClass).attr({ 'href': '#' + headerID, 'aria-hidden': 'true' }).html(anchorIcon));
+      // header.prepend($('<a />').addClass(anchorClass).attr({ 'href': '#' + headerID, 'aria-hidden': 'true' }).html(anchorIcon));
+      header.prepend(anchorIcon);
+      header.wrap(
+        $('<a />').addClass('no-decoration header-anchor').attr({ 'href':'#'+headerID })
+      );
     }
 
     return this;

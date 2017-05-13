@@ -1,15 +1,22 @@
-.header-link {
+.post-section h2 .fa-link {
+}
+
+.fa-link {
   position: absolute;
-  padding-right: .5em;
-  margin-left: -1em;
+  margin-left: -26px;
   color: inherit !important;
   text-decoration: none !important;
   opacity: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  &:hover, &:focus {
+    opacity: 0.9;
+  }
 }
 
-.header-link .fa {
-  font-size: 66%;
-  vertical-align: .1em;
+.fa {
+  font-size:16px;
 }
 
 /* do not display in less than 768px screen */
@@ -19,14 +26,13 @@
   }
 }
 
-*:hover > .header-link {
-  opacity: .75;
-  /* to fade links as they appear, change transition-property from 'color' to 'all' */
-  -webkit-transition: color .16s linear;
-  transition: color .16s linear;
-}
-
-*:hover > .header-link:hover,
-*:hover > .header-link:focus {
-  opacity: 1;
+.post-section, .header-anchor {
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+    &:hover > .fa-link {
+      opacity: 0.9;
+      /* to fade links as they appear, change transition-property from 'color' to 'all' */
+      -webkit-transition: color .16s linear;
+      transition: color .16s linear;
+    }
+  }
 }

@@ -52,10 +52,18 @@ $menu-bar-width: 15em;
     color: #fff;
     margin-top:32px;
   }
-
-
 }
 
 .container {
   margin-left:$icon-bar-width + $menu-bar-width;
+}
+
+a.no-decoration {
+  color:inherit !important;
+  text-decoration:none !important;
+
+  &:active, &:hover, &:focus, &:visited {
+    color:inherit !important;
+    text-decoration:none !important;
+  }
 }
