@@ -9,11 +9,14 @@
       {% assign sorted_cats = site.categories | sort %}
       {% for category in sorted_cats %}
       {% assign sorted_posts = category[1] | reverse %}
+      {% assign category_name = category | first %}
+      {% if category_name == "CLAS201" %}
       <article class="markdown-body">
         {% for post in sorted_posts %}
         <div class="post-section">{{ post }}</div>
         {% endfor %}
       </article>
+      {% endif %}
       {% endfor %}
     </div>
   </div>
