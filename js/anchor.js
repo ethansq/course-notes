@@ -10,6 +10,8 @@ $(function () {
     +'.post-section > h5, '
     +'.post-section > h6';
 
+  var $contents = $(".table-of-contents-container");
+
   $(postHeader).filter('[id]').each(function () {
     var header      = $(this),
         headerID    = header.attr('id'),
@@ -22,8 +24,17 @@ $(function () {
       header.wrap(
         $('<a />').addClass('no-decoration header-anchor').attr({ 'href':'#'+headerID })
       );
+
+      var element = header.prop('nodeName');
+      $contents.append(
+        "<a class='content-section' href=#"+headerID+">" +
+          "<"+element+">"+header.text()+"</"+element+">" +
+        "</a>"
+      );
     }
 
+    $("a.content-section").first().addClass("active");
+    
     return this;
   });
 });

@@ -2,8 +2,12 @@ body, html {
   margin:0px !important;
 }
 
+.page-content {
+  overflow:hidden;
+}
+
 .container {
-  width: 50em;
+  width: 54em;
   float:left;
 }
 
@@ -28,7 +32,7 @@ body, html {
   -webkit-text-size-adjust: 100%;
   color: #333333;
   overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-family: "Open Sans", sans-serif, Helvetica, "Segoe UI", Arial, freesans;
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
@@ -189,7 +193,7 @@ body, html {
 }
 
 .markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  font: 13px "Open Sans", sans-serif, arial, freesans, clean, "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.4;
 }
 

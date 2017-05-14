@@ -1,22 +1,30 @@
 <div id="side-bar">
   <div id="icons">
     <div class="site-icon-wrapper"><img class="site-icon" src="favicon.png" /></div>
+    <div class="menu-icon-wrapper">
+      <div class="icon-background"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+    </div>
+    <div class="menu-icon-wrapper">
+      <div class="icon-background"><span class="glyphicon glyphicon-menu-right"></span></div>
+    </div>
   </div>
 
   <div id="menu">
     <div class="category-container">
-      <h1 class="name">Et/Han</h1>
+      <h2 class="name">Et/Han</h2>
 
       {% assign categories = site.categories %}
       {% for category in categories %}
         {% assign sorted_posts = category[1] | reverse %}
         <div class="category">
-          <h4 class="category-header">{{ category | first }}</h4>
+          <h4 class="category-header">{% include {{ category | first }}.html %}</h4>
         </div>
       {% endfor %}
     </div>
 
-    <div class="">
+    <div class="table-of-contents-container">
+      <h4 class="name">Table of Contents</h4>
+
     </div>
   </div>
 </div>
