@@ -16,7 +16,7 @@
       {% assign categories = site.categories %}
       {% for category in categories %}
         {% assign sorted_posts = category[1] | reverse %}
-        <div class="category {{ category | first }}">
+        <div class="category" lecture="{{ category | first }}">
           <h4 class="category-header">{% include {{ category | first }}.html %}</h4>
         </div>
       {% endfor %}
@@ -24,7 +24,6 @@
 
     <div class="table-of-contents-container">
       <h4 class="name">Table of Contents</h4>
-
     </div>
   </div>
 </div>
