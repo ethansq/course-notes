@@ -3,38 +3,51 @@ $(function () {
   'use strict';
 
   /* selector for headers */
-  var postHeader = '.post-section > h1, '
-    +'.post-section > h2, '
-    +'.post-section > h3, '
-    +'.post-section > h4, '
-    +'.post-section > h5, '
-    +'.post-section > h6';
+  var classArray = ["CLAS201", "CS349", "CS350"];
 
-  var $contents = $(".table-of-contents-container");
+  classArray.forEach(function(curr, index, array) {
+    var prefix = ".markdown-body."+curr;
+    var postHeader =
+        prefix+' .post-section > h1, '+
+        prefix+' .post-section > h2, '+
+        prefix+' .post-section > h3, '+
+        prefix+' .post-section > h4, '+
+        prefix+' .post-section > h5, '+
+        prefix+' .post-section > h6';
 
-  $(postHeader).filter('[id]').each(function () {
-    var header      = $(this),
-        headerID    = header.attr('id'),
-        anchorClass = 'header-link',
-        anchorIcon  = '<i class="fa fa-link" title="Link" aria-hidden="true"></i>';
+    postHeader = ".markdown-body."+curr+" "+postHeader;
+    console.log(postHeader);
 
-    if (headerID) {
-      // header.prepend($('<a />').addClass(anchorClass).attr({ 'href': '#' + headerID, 'aria-hidden': 'true' }).html(anchorIcon));
-      header.prepend(anchorIcon);
-      header.wrap(
-        $('<a />').addClass('no-decoration header-anchor').attr({ 'href':'#'+headerID })
-      );
+    var activeClass = (curr === "CLAS201") ? "active" : "";
+    var $contents = $(".table-of-contents-container");
+    $contents.append("<div class='table-of-contents "+curr+" "+activeClass+"'></div>");
+    $contents = $(".table-of-contents."+curr);
 
-      var element = header.prop('nodeName');
-      $contents.append(
-        "<a class='content-section' href=#"+headerID+">" +
-          "<"+element+">"+header.text()+"</"+element+">" +
-        "</a>"
-      );
-    }
+    $(postHeader).filter('[id]').each(function () {
+      var header      = $(this),
+          headerID    = header.attr('id'),
+          anchorClass = 'header-link',
+          anchorIcon  = '<i class="fa fa-link" title="Link" aria-hidden="true"></i>';
 
-    $("a.content-section").first().addClass("active");
-    
-    return this;
+      if (headerID) {
+        // header.prepend($('<a />').addClass(anchorClass).attr({ 'href': '#' + headerID, 'aria-hidden': 'true' }).html(anchorIcon));
+        header.prepend(anchorIcon);
+        header.wrap(
+          $('<a />').addClass('no-decoration header-anchor').attr({ 'href':'#'+headerID })
+        );
+
+        var element = header.prop('nodeName');
+        $contents.append(
+          "<a class='content-section' href=#"+headerID+">" +
+            "<"+element+">"+header.text()+"</"+element+">" +
+          "</a>"
+        );
+      }
+
+      $("a.content-section").first().addClass("active");
+      
+      return this;
+    });
+
   });
 });

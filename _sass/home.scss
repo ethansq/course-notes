@@ -1,6 +1,19 @@
 $icon-bar-width: 4em;
 $menu-bar-width: 18em;
 
+/* hide all class' notes except .active */
+
+.markdown-body:not(.active) {
+  display:none;
+}
+
+/* all all class' tables of contents except .active */
+
+.table-of-contents:not(.active) {
+  display:none;
+}
+
+
 #side-bar {
   width:auto;
   background-color: $primary-color;

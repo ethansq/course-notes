@@ -33,6 +33,12 @@ $(document).ready(function() {
       console.log(getCookie("lecture"));
       $(".category .category-header").removeClass("active")
       $(".category[lecture="+newLecture+"] .category-header").addClass("active");
+
+      // show notes for this class, and hide notes for others
+      // also update table of contents
+      $(".markdown-body, .table-of-contents").removeClass("active");
+      $(".markdown-body"+"."+newLecture).addClass("active");
+      $(".table-of-contents"+"."+newLecture).addClass("active");
     });
   });
 });

@@ -11,12 +11,14 @@
       {% assign sorted_posts = category[1] | reverse %}
       {% assign category_name = category | first %}
       {% if category_name == "CLAS201" %}
-      <article class="markdown-body">
+      <article class="markdown-body {{ category_name }} active">
+      {% else %}
+      <article class="markdown-body {{ category_name }}">
+      {% endif %}
         {% for post in sorted_posts %}
         <div class="post-section">{{ post }}</div>
         {% endfor %}
       </article>
-      {% endif %}
       {% endfor %}
     </div>
   </div>
