@@ -20,25 +20,47 @@ function getCookie(name) {
     return null;
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function showClass(showClass) {
+  $(".category .category-header").removeClass("active")
+  $(".category[lecture="+showClass+"] .category-header").addClass("active");
+
+  // show notes for this class, and hide notes for others
+  // also update table of contents
+  $(".markdown-body, .table-of-contents").removeClass("active");
+  $(".markdown-body"+"."+showClass).addClass("active");
+  $(".table-of-contents"+"."+showClass).addClass("active");
+}
+
 $(document).ready(function() {
   $(this).scrollTop(0);
 
-  $(".category[lecture='CLAS201'] .category-header").addClass("active");
-  setCookie("lecture", "CLAS201");
+  var classQuery = getParameterByName('class');
 
+  if (classQuery === null || classQuery === '') {
+    classQuery = "MSCI311";
+  }
+
+  $(".category[lecture='"+classQuery+"'] .category-header").addClass("active");
+  setCookie("lecture", classQuery);
+  showClass(classQuery);
+
+  // Set the click listener for the class selection list
   $(".category").each(function(index) {
     $(this).click(function() {
       var newLecture = $(this).attr("lecture");
       setCookie("lecture", newLecture);
-      console.log(getCookie("lecture"));
-      $(".category .category-header").removeClass("active")
-      $(".category[lecture="+newLecture+"] .category-header").addClass("active");
 
-      // show notes for this class, and hide notes for others
-      // also update table of contents
-      $(".markdown-body, .table-of-contents").removeClass("active");
-      $(".markdown-body"+"."+newLecture).addClass("active");
-      $(".table-of-contents"+"."+newLecture).addClass("active");
+      showClass(newLecture);
     });
   });
 });
