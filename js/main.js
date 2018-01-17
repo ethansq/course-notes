@@ -47,7 +47,7 @@ $(document).ready(function() {
   var classQuery = getParameterByName('class');
 
   if (classQuery === null || classQuery === '') {
-    classQuery = "MSCI311";
+    classQuery = "CLAS201";
   }
 
   $(".category[lecture='"+classQuery+"'] .category-header").addClass("active");
