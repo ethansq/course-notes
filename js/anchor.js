@@ -3,7 +3,7 @@ $(function () {
   'use strict';
 
   /* selector for headers */
-  var classArray = ["CLAS201", "CS349", "CS350", "MSCI311", "SCI207", "CS343"];
+  var classArray = ["CLAS201", "CS349", "CS350", "MSCI311", "SCI207", "CS343", "CS449"];
 
   classArray.forEach(function(curr, index, array) {
     var prefix = ".markdown-body."+curr;
